@@ -1,0 +1,223 @@
+.mainPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+.background{
+    height: 700px;
+    background-image: url("https://phonoteka.org/uploads/posts/2021-07/1625487444_13-phonoteka-org-p-kinostudiya-predstavlyaet-zastavka-krasivi-13.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    opacity: 90%;
+
+}
+.descriptionPhone{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.descriptionBlockPhone h1{
+    font-size: 40px;
+}
+.descriptionBlockPhone h3{
+    font-size: 20px;
+}
+.photoPhone{
+    width: 30%;
+    border-radius: 30px;
+
+}
+
+
+.descriptionBlockPhone{
+    text-align: center;
+}
+
+.background::before,
+.background::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 50px;
+    pointer-events: none;
+}
+
+.background::before {
+    top: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), transparent);
+}
+
+.background::after {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.5), transparent);
+}
+
+.fon {
+    width: 100%;
+}
+
+.movie {
+    cursor: pointer;
+}
+
+.formSearch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.description {
+    text-align: center;
+    margin-top: 50px;
+
+}
+.description h1{
+    font-size: 45px;
+    margin-bottom: 0;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.searchButton {
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    background: #4676D7;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 16px;
+    width: 150px;
+    cursor: pointer;
+}
+
+.searchButton:active {
+    transform: scale(1.02);
+}
+
+.searchInput {
+    width: 300px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    background-color: #f1f1f1;
+    outline: none;
+}
+
+.searchInput::placeholder {
+    color: #999;
+}
+
+.searchInput:focus {
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.modalContent {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    column-gap: 10px;
+    height: 500px;
+
+
+}
+
+.modalContent h2 {
+    margin-bottom: 10px;
+}
+
+.modalContent button {
+    margin-top: 10px;
+}
+
+#h3 {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.titleModal {
+    width: 100%;
+}
+
+.titleModal h2 {
+    margin: 0;
+    position: relative;
+    top: -20px;
+
+}
+
+.buttonClose {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#closeModel {
+    font-size: 25px;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    line-height: 1;
+    color: #999;
+}
+
+#closeModel:hover {
+    color: #000;
+}
+
+.scrollModel {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    overflow: auto;
+    row-gap: 20px;
+}
+
+.scrollModel::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scrollModel::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.scrollModel::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.scrollModel::-webkit-scrollbar-thumb:hover {
+    background: #555;
+
+}

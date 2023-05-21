@@ -1,0 +1,15 @@
+
+.logo{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+.blockLogo{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 20px;
+    column-gap: 50px;
+
+}
