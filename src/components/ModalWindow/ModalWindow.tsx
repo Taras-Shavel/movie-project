@@ -3,7 +3,7 @@ import {IMovie} from "../../interface";
 
 import css from './ModalWindow.module.css'
 import {useNavigate} from "react-router";
-import StarsRating from "../StarsRating/StarsRating";
+import {StarsRating} from "../StarsRating";
 
 
 interface IProps {
@@ -31,4 +31,4 @@ const ModalWindow: FC<IProps> = ({movie}) => {
     );
 };
 
-export default ModalWindow;
+export {ModalWindow};

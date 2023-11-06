@@ -1,24 +1,44 @@
 import React, { FC, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {fetchMovies, RootState} from "../../redux";
-import {IMovie} from "../../interface";
-import MovieListCard from "../MovieListCard/MovieListCard";
+import { moviesAction} from "../../redux";
+
+import {MovieListCard} from "../MovieListCard";
 import css from './MovieList.module.css'
+import {useAppDispatch, useAppSelector} from "../../hooks";
+import {useSearchParams} from "react-router-dom";
+
 
 
 const MovieList: FC = () => {
-    const dispatch = useDispatch();
-    const movies = useSelector((state: RootState) => state.movieReducer.movies);
+    // const dispatch = useDispatch();
+    // const movies = useSelector((state: RootState) => state.movieReducer.movies);
+    //
+    // useEffect(() => {
+    //     dispatch(fetchMovies(1) as any);
+    // }, [dispatch]);
+
+    const {movies, currentPage} = useAppSelector((state) => state.moviesReducer);
+    const dispatch = useAppDispatch();
+    const [_, setQuery] = useSearchParams();
+
 
     useEffect(() => {
-        dispatch(fetchMovies(1) as any);
+        setQuery(prev => ({...prev, page: '1'}))
+    }, [])
+
+    useEffect(() => {
+        dispatch(moviesAction.getAll(+currentPage));
     }, [dispatch]);
+
+    console.log(movies)
 
     return (
         <div className={css.movieListStyle}>
-            {movies.map((movie: IMovie) => <MovieListCard key={movie.id} movie={movie}/>)}
+            {/*{movies.map((movie: IMovie) => <MovieListCard key={movie.id} movie={movie}/>)}*/}
+            {
+                movies.map(movie => <MovieListCard key={movie.id} movie={movie}/>)
+            }
         </div>
     );
 };
 
-export default MovieList;
+export {MovieList};

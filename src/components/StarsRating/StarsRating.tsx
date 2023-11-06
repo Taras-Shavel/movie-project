@@ -25,4 +25,4 @@ const StarsRating:FC<StarRatingProps> = ({ rating }) => {
     );
 };
 
-export default StarsRating;
+export {StarsRating};

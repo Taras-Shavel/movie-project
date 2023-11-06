@@ -1,17 +1,12 @@
 const baseURL = 'https://api.themoviedb.org/3'
 
-const discover = '/discover'
-const account = '/account'
+const discover = '/discover/movie'
 const urls = {
-    discover:{
+    discover: {
         discover,
-        movie: '/movie',
+        byId:(id: number)=> `/movie/${id}`
     },
-    account:{
-        account,
-        byId: (id:number):string => `${account}/${id}`,
-        list: '/list'
-    }
+    genres: '/genre/movie/list'
 }
 export {
     baseURL,

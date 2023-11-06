@@ -1,24 +1,46 @@
 import React, { FC, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {fetchMovies, RootState} from "../../redux";
-import css from './pagination.module.css'
-import {Link} from "react-router-dom";
 
-const Pagination: FC = () => {
-    const dispatch = useDispatch();
+import { moviesAction} from "../../redux";
+import css from './pagination.module.css'
+import {Link, useSearchParams} from "react-router-dom";
+import {useAppDispatch, useAppSelector} from "../../hooks";
+
+const MoviePagination: FC = () => {
+    // const dispatch = useDispatch();
+    // const [currentPage, setCurrentPage] = useState(1);
+    // const totalPage = useSelector((state: RootState) => state.movieReducer.totalPage);
+    //
+    // const handlePreviousPage = () => {
+    //     if (currentPage > 1) {
+    //         setCurrentPage(currentPage - 1);
+    //         dispatch(fetchMovies(currentPage - 1) as any);
+    //     }
+    // };
+    //
+    // const handleNextPage = () => {
+    //     setCurrentPage(currentPage + 1);
+    //     dispatch(fetchMovies(currentPage + 1) as any);
+    // };
+
+    const [, setQuery] = useSearchParams();
     const [currentPage, setCurrentPage] = useState(1);
-    const totalPage = useSelector((state: RootState) => state.movieReducer.totalPage);
+    const total_page = useAppSelector(state => state.moviesReducer.total_page);
+    const dispatch = useAppDispatch();
 
     const handlePreviousPage = () => {
         if (currentPage > 1) {
-            setCurrentPage(currentPage - 1);
-            dispatch(fetchMovies(currentPage - 1) as any);
+            const newPage = currentPage - 1;
+            dispatch(moviesAction.getAll(newPage));
+            setCurrentPage(newPage);
+            setQuery(prevQuery => ({ ...prevQuery, page: newPage.toString() }));
         }
     };
 
     const handleNextPage = () => {
-        setCurrentPage(currentPage + 1);
-        dispatch(fetchMovies(currentPage + 1) as any);
+        const newPage = currentPage + 1;
+        dispatch(moviesAction.getAll(newPage));
+        setCurrentPage(newPage);
+        setQuery(prevQuery => ({ ...prevQuery, page: newPage.toString() }));
     };
 
     return (
@@ -30,8 +52,8 @@ const Pagination: FC = () => {
                 <button onClick={handlePreviousPage} className={css.button} disabled={currentPage === 1}>
                     Prev Page
                 </button>
-                <span>{currentPage} of {totalPage}</span>
-                <button onClick={handleNextPage} className={css.button} disabled={currentPage === totalPage}>
+                <span>{currentPage} of {total_page}</span>
+                <button onClick={handleNextPage} className={css.button} disabled={currentPage === total_page}>
                     Next Page
                 </button>
             </div>
@@ -39,4 +61,4 @@ const Pagination: FC = () => {
     );
 };
 
-export default Pagination;
+export {MoviePagination};

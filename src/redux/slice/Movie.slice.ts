@@ -1,56 +1,95 @@
-import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import axios from "axios";
-import {IMovie, IMovieState} from "../../interface";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { movieService } from "../../services";
+import { IMovieNew, IMoviesNew } from "../../interface/interfacesNew";
 
-const API_KEY = '441c4f28d810f4abc9fe763d6c2f1490'
-export  const fetchMovies = createAsyncThunk('movies/fetchMovies', async(page: number) =>{
-    const response = await axios.get(`https://api.themoviedb.org/3/discover/movie?page=${page}&api_key=${API_KEY}`);
-    return {
-        movies: response.data.results as IMovie[],
-        page,
-    }
-});
-
-const initialState: IMovieState = {
-    movies: [],
-    loading: false,
-    error: null,
-    currentPage: 1,
-    totalPage: 500,
-    movie: {} as IMovie
+interface IMovieStateNew {
+    movies: IMovieNew[];
+    currentPage: number;
+    total_page: number;
+    loading: boolean;
+    error: string | null;
+    movie?: IMovieNew;
+    data: IMovieNew | null; // Змінено тип на IMovieNew | null
 }
 
+const initialState: IMovieStateNew = {
+    movies: [],
+    currentPage: 1,
+    total_page: 500,
+    loading: false,
+    error: null,
+    movie: {} as IMovieNew,
+    data: null, // Змінено значення на null
+};
+
+const getAll = createAsyncThunk<IMoviesNew, number>(
+    'moviesSlice/getAll',
+    async (currentPage, thunkAPI) => {
+        try {
+            const { data } = await movieService.getAll(currentPage);
+            return data;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error);
+        }
+    }
+);
+
+const getById = createAsyncThunk<IMovieNew, number >(
+    'moviesSlice/getById',
+    async (id, thunkAPI) => {
+        try {
+            const { data } = await movieService.getById(id);
+            return data;
+        } catch (e) {
+            return thunkAPI.rejectWithValue(e);
+        }
+    }
+);
+
 const slice = createSlice({
-    name: 'movieSlice/slice',
+    name: 'moviesSlice',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(fetchMovies.pending, (state) => {
-                state.loading = true;
+            .addCase(getAll.fulfilled, (state, action) => {
+                state.movies = action.payload.results;
+                state.currentPage = action.payload.page;
+            })
+            .addCase(getAll.pending, (state) => {
                 state.error = null;
+                state.loading = true;
             })
-            .addCase(fetchMovies.fulfilled, (state, action: PayloadAction<{movies: IMovie[]; page: number}>) => {
-                state.loading = false;
-                state.movies = action.payload.movies;
-                state.currentPage = action.payload.page
-            })
-            .addCase(fetchMovies.rejected, (state, action) => {
+            .addCase(getAll.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.error.message as string;
             })
+
+            .addCase(getById.fulfilled, (state, action) => {
+                state.loading = false;
+                state.data = action.payload;
+            })
+            .addCase(getById.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(getById.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error.message as string;
+            });
     }
-})
-const {actions, reducer: movieReducer} = slice;
+});
 
-const movieActions = {
+const { reducer: moviesReducer, actions } = slice;
+
+const moviesAction = {
     ...actions,
-}
+    getAll,
+    getById,
+};
+
 export {
-    movieReducer,
-    movieActions
-}
-
-
-
+    moviesAction,
+    moviesReducer,
+};
 

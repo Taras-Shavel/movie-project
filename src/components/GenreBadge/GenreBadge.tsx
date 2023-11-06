@@ -1,4 +1,4 @@
-import React, {FC, useContext} from 'react';
+import React, {FC} from 'react';
 import {IGenre} from "../../interface";
 import css from './GenreBadge.module.css'
 import {Link} from "react-router-dom";
@@ -21,4 +21,4 @@ const GenreBadge: FC<IProps> = ({genre}) => {
     );
 };
 
-export default GenreBadge;
+export {GenreBadge};

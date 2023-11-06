@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import MovieInfo from "../../components/MovieInfo/MovieInfo";
+import {MovieInfo} from "../../components";
 
 
 const MovieInfoPage = () => {
@@ -14,10 +14,10 @@ const MovieInfoPage = () => {
 
     return (
         <div>
-            <MovieInfo movie={movieId}/>
+            <MovieInfo movie={+movieId}/>
 
         </div>
     );
 };
 
-export default MovieInfoPage;
+export {MovieInfoPage};

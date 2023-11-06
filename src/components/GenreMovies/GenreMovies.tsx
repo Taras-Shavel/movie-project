@@ -1,15 +1,15 @@
 import React, {FC, useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import axios from 'axios';
-import {IMovie} from '../../interface';
-import MovieListCard from "../MovieListCard/MovieListCard";
+import {MovieListCard} from "../MovieListCard";
 import css from './GenreMovies.module.css'
+import {IMovieNew} from "../../interface/interfacesNew";
 
 
 
 
 const GenreMovies: FC = () => {
-    const [movies, setMovies] = useState<IMovie[]>([]);
+    const [movies, setMovies] = useState<IMovieNew[]>([]);
     const {genreId} = useParams();
     const [isLoading, SetIsLoading] = useState(true);
 
@@ -22,7 +22,7 @@ const GenreMovies: FC = () => {
     useEffect(() => {
         const fetchMovies = async () => {
             try {
-                const response = await axios.get<{ results: IMovie[] }>(
+                const response = await axios.get<{ results: IMovieNew[] }>(
                     'https://api.themoviedb.org/3/discover/movie',
                     {
                         params: {
@@ -64,4 +64,4 @@ const GenreMovies: FC = () => {
     );
 };
 
-export default GenreMovies;
+export {GenreMovies};

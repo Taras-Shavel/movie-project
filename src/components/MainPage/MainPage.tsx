@@ -2,7 +2,8 @@ import React, {FC, useState} from 'react';
 import css from './mainPage.module.css';
 import {IMovie} from '../../interface';
 import axios from 'axios';
-import ModalWindow from "../ModalWindow/ModalWindow";
+import {ModalWindow} from "../ModalWindow";
+
 
 const MainPage: FC = () => {
     const [movies, setMovies] = useState<IMovie[]>([]);
@@ -93,4 +94,4 @@ const MainPage: FC = () => {
     );
 };
 
-export default MainPage;
+export {MainPage};

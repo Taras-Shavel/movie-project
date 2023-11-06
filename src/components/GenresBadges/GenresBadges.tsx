@@ -1,13 +1,13 @@
 import React, {FC, useEffect, useState} from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {fetchGenres, RootState} from "../../redux";
+import {genreActions, RootState} from "../../redux";
 import css from './GenresBadges.module.css'
-import GenreBadge from "../GenreBadge/GenreBadge";
+import {GenreBadge} from "../GenreBadge";
+import {useAppDispatch, useAppSelector} from "../../hooks";
 
 
 const GenresBadges: FC = () => {
-    const dispatch = useDispatch();
-    const genres = useSelector((state: RootState) => state.genreReducer.genres);
+    const dispatch = useAppDispatch();
+    const {genres} = useAppSelector((state: RootState) => state.genreReducer);
     const [isLoading, SetIsLoading] = useState(true);
 
     useEffect(() => {
@@ -18,9 +18,9 @@ const GenresBadges: FC = () => {
 
 
     useEffect(() => {
-        dispatch(fetchGenres() as any)
+        dispatch(genreActions.getAll())
     }, [dispatch])
-
+    console.log(genres)
     return (
         <div>
             {
@@ -42,4 +42,4 @@ const GenresBadges: FC = () => {
     );
 };
 
-export default GenresBadges;
+export {GenresBadges};

@@ -1,11 +1,10 @@
 import React from 'react';
-import MoviePage from "./pages/MoviePage/MoviePage";
 import {Route, Routes} from "react-router-dom";
-import MainLayout from "./layout/MainLayout";
-import MainPage from "./components/MainPage/MainPage";
-import MovieInfoPage from "./pages/MovieInfoPage/MovieInfoPage";
-import GenresBadges from "./components/GenresBadges/GenresBadges";
-import GenreMovies from "./components/GenreMovies/GenreMovies";
+import {MainLayout} from "./layout";
+import {MainPage} from "./components/MainPage";
+import {MovieInfoPage, MoviePage} from "./pages";
+import {GenreMovies, GenresBadges} from "./components";
+
 
 
 function App() {

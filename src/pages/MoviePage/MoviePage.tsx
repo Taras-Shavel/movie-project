@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import MoviePagination from "../../components/MoviePagination/MoviePagination";
-import MovieList from "../../components/MovieList/MovieList";
+import {MoviePagination} from "../../components";
+import {MovieList} from "../../components";
 import './moviePage.style.css'
 
 const MoviePage = () => {
@@ -30,4 +30,4 @@ const MoviePage = () => {
     );
 };
 
-export default MoviePage;
+export {MoviePage};

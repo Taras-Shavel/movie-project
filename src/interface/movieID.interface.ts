@@ -1,4 +1,4 @@
-import {IGenre} from "./genre.interface";
+import {IGenre} from "./interfacesNew/genre.interface";
 
 
 export interface IMovieID {

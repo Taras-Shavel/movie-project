@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
-import css from './Header.module.css';
+import css from "./Header.module.css"
 import { Link } from 'react-router-dom';
-import UserInfo from '../UserInfo/UserInfo';
+import {UserInfo} from '../UserInfo';
 
 
 const Header: FC = () => {
@@ -27,4 +27,4 @@ const Header: FC = () => {
     );
 };
 
-export default Header;
+export {Header};

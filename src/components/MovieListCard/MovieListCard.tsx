@@ -1,11 +1,16 @@
 import React, {FC} from 'react';
-import {IMovie} from "../../interface";
+
 import css from './MovieListCard.module.css'
 import {useNavigate} from "react-router";
-import StarsRating from "../StarsRating/StarsRating";
+import {StarsRating} from "../StarsRating";
+import {IMovieNew} from "../../interface/interfacesNew";
+
+// interface IProps {
+//     movie: IMovie
+// }
 
 interface IProps {
-    movie: IMovie
+    movie: IMovieNew
 }
 const MovieListCard: FC<IProps> = ({movie}) => {
     const {id, title, vote_average, poster_path} = movie;
@@ -26,4 +31,4 @@ const MovieListCard: FC<IProps> = ({movie}) => {
     );
 };
 
-export default MovieListCard;
+export {MovieListCard};
