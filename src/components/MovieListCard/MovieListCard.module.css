@@ -1,26 +1,58 @@
-.listCard{
-    width: 15%;
-    border: 2px solid black;
+.container {
+    width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    padding: 5px;
     cursor: pointer;
-    border-radius: 10px;
+    box-sizing: border-box;
+}
 
+.listCard {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: black;
 }
-.listCard:hover{
-    border-color: #f00;
-    transform: scale(1.04);
+
+.imgPost {
+    width: 100%;
+    box-sizing: border-box;
+    transition: opacity 0.4s;
 }
-.imgPost{
-    width: 100px;
-}
-.listCard h4{
-    margin: 0;
+
+.container h3 {
+    margin: 5px;
     text-align: center;
 }
 
+.listCard:hover img {
+    opacity: 0.3;
+}
 
+.listCard::before {
+    content: "\25B6";
+    font-size: 50px;
+    position: absolute;
+    background-color: #a80000;
+    border-radius: 50%;
+    opacity: 0;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+}
+
+.listCard:hover::before {
+    opacity: 1;
+}
+
+.listCard:hover {
+
+    box-shadow: 0 0 10px 5px #a80000;
+}

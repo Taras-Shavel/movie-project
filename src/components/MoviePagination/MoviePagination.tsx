@@ -6,21 +6,6 @@ import {Link, useSearchParams} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../hooks";
 
 const MoviePagination: FC = () => {
-    // const dispatch = useDispatch();
-    // const [currentPage, setCurrentPage] = useState(1);
-    // const totalPage = useSelector((state: RootState) => state.movieReducer.totalPage);
-    //
-    // const handlePreviousPage = () => {
-    //     if (currentPage > 1) {
-    //         setCurrentPage(currentPage - 1);
-    //         dispatch(fetchMovies(currentPage - 1) as any);
-    //     }
-    // };
-    //
-    // const handleNextPage = () => {
-    //     setCurrentPage(currentPage + 1);
-    //     dispatch(fetchMovies(currentPage + 1) as any);
-    // };
 
     const [, setQuery] = useSearchParams();
     const [currentPage, setCurrentPage] = useState(1);

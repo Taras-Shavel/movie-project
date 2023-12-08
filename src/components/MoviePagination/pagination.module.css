@@ -2,6 +2,10 @@
     text-align: center;
     margin-top: 10px;
 }
+.buttonPagination span {
+    color: #b7b6b6;
+    font-size: 30px;
+}
 button{
     margin: 20px;
 }
@@ -9,19 +13,21 @@ button{
 
 .button{
     appearance: none;
-    border: 0;
+
     border-radius: 5px;
-    background: #4676D7;
-    color: #fff;
+    background: #15171a;
+    color: #a80000;
     padding: 8px 16px;
     font-size: 16px;
-    width: 110px;
+    width: 150px;
+    height: 50px;
     cursor: pointer;
+    box-shadow: 0 0 10px 5px #a80000;
+    border: 2px solid #a80000;
 }
-
-.button:active{
-    transform: scale(1.02);
-
+.button:active {
+    transform: translateY(2px);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 .genresStyle{
@@ -29,9 +35,9 @@ button{
     margin-top: 15px;
 }
 .genres{
-    font-size: 25px;
+    font-size: 35px;
     text-decoration: none;
-    color: black;
+    color: #b7b6b6;
 }
 span{
     font-size: 20px;

@@ -6,7 +6,8 @@ const urls = {
         discover,
         byId:(id: number)=> `/movie/${id}`
     },
-    genres: '/genre/movie/list'
+    genres: '/genre/movie/list',
+    videos:(id: number) => `/movie/${id}/videos`
 }
 export {
     baseURL,

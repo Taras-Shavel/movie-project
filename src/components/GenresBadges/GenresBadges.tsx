@@ -3,6 +3,7 @@ import {genreActions, RootState} from "../../redux";
 import css from './GenresBadges.module.css'
 import {GenreBadge} from "../GenreBadge";
 import {useAppDispatch, useAppSelector} from "../../hooks";
+import {Loading} from "../Loading";
 
 
 const GenresBadges: FC = () => {
@@ -25,10 +26,8 @@ const GenresBadges: FC = () => {
         <div>
             {
                 isLoading ?
-                    <div className={css.pageLoader}>
-                        <div className={css.loader}></div>
-                        <h1>Loading...</h1>
-                    </div> :
+                    <Loading/>
+                    :
                     <div className={css.mainPageGenres}>
                         <h1>Choose a movie genre</h1>
                         <div className={css.blockGenreList}>

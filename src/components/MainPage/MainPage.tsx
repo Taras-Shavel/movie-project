@@ -1,18 +1,19 @@
 import React, {FC, useState} from 'react';
 import css from './mainPage.module.css';
-import {IMovie} from '../../interface';
+
 import axios from 'axios';
 import {ModalWindow} from "../ModalWindow";
+import {IMovieNew} from "../../interface";
 
 
 const MainPage: FC = () => {
-    const [movies, setMovies] = useState<IMovie[]>([]);
+    const [movies, setMovies] = useState<IMovieNew[]>([]);
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [showModal, setShowModal] = useState<boolean>(false);
 
     const handleSearch = async () => {
         try {
-            const response = await axios.get<{ results: IMovie[] }>(
+            const response = await axios.get<{ results: IMovieNew[] }>(
                 'https://api.themoviedb.org/3/search/movie',
                 {
                     params: {
@@ -40,8 +41,8 @@ const MainPage: FC = () => {
             <div className={css.background}>
                 <div className={css.mainPage}>
                     <div className={css.description}>
-                        <h1>Watch our film everywhere</h1>
-                        <h2>Unlimited movies, TV-shows and more...</h2>
+                        <h1 className={css.colorText}>Watch our film everywhere</h1>
+                        <h2 className={css.colorText}>Unlimited movies, TV-shows and more...</h2>
                         <div className={css.formSearch}>
                             <input
                                 type="text"

@@ -1,5 +1,5 @@
 
-import {IMovieNew} from "./IMovie.interface";
+import {IMovieNew} from "./movie.interface";
 
 export interface IMoviesNew {
     page: number;

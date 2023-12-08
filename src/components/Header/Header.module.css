@@ -6,7 +6,8 @@
     align-items: center;
 
 
-    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 1;
@@ -19,24 +20,11 @@
     align-items: center;
     padding-left: 20px;
 }
-.buttonSwitcherTheme{
-    appearance: none;
-    border: 0;
-    border-radius: 5px;
-    background: #4676D7;
-    color: #fff;
-    padding: 8px 16px;
-    font-size: 16px;
-    width: 150px;
-    cursor: pointer;
-}
 
-.buttonSwitcherTheme:active{
-    transform: scale(1.02);
-}
+
 #linkWebSite, #linkMovieList{
     text-decoration: none;
-    color: black;
+    color: snow;
     font-size: 25px;
 }
 .blockLogo{
@@ -53,6 +41,7 @@
     display: flex;
     justify-content: flex-end;
 }
+
 
 
 

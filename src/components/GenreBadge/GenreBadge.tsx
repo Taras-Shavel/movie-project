@@ -1,8 +1,7 @@
 import React, {FC} from 'react';
-import {IGenre} from "../../interface";
 import css from './GenreBadge.module.css'
 import {Link} from "react-router-dom";
-
+import {IGenre} from "../../interface";
 
 interface IProps {
     genre: IGenre;

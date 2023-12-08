@@ -1,5 +1,5 @@
 import {IRes} from "../types";
-import {IMovieNew, IMoviesNew} from "../interface/interfacesNew";
+import {IMovieNew, IMoviesNew} from "../interface";
 import {axiosService} from "./axios.service";
 import {urls} from "../constants";
 

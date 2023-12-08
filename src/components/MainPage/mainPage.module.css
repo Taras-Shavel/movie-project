@@ -2,11 +2,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 400px;
+    height: 800px;
 }
-.background{
-    height: 700px;
-    background-image: url("https://phonoteka.org/uploads/posts/2021-07/1625487444_13-phonoteka-org-p-kinostudiya-predstavlyaet-zastavka-krasivi-13.jpg");
+
+.background {
+    height: 100vh;
+    background-image: url("/public/Photo/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -14,27 +15,33 @@
     opacity: 90%;
 
 }
-.descriptionPhone{
+
+.descriptionPhone {
     width: 100%;
     height: 400px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
-.descriptionBlockPhone h1{
+
+.descriptionBlockPhone h1 {
     font-size: 40px;
 }
-.descriptionBlockPhone h3{
+
+.descriptionBlockPhone h3 {
     font-size: 20px;
 }
-.photoPhone{
+
+.photoPhone {
     width: 30%;
     border-radius: 30px;
+    box-shadow: 0 0 10px 5px #b7b6b6;
+
 
 }
 
 
-.descriptionBlockPhone{
+.descriptionBlockPhone {
     text-align: center;
 }
 
@@ -50,12 +57,13 @@
 
 .background::before {
     top: 0;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), transparent);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+
 }
 
 .background::after {
     bottom: 0;
-    background: linear-gradient(to top, rgba(255, 255, 255, 0.5), transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
 }
 
 .fon {
@@ -77,9 +85,19 @@
     margin-top: 50px;
 
 }
-.description h1{
-    font-size: 45px;
+
+.description h1 {
+    font-size: 60px;
     margin-bottom: 0;
+}
+
+.description h2 {
+    font-size: 30px;
+
+}
+
+.colorText {
+    color: snow;
 }
 
 .modal {
@@ -113,7 +131,7 @@
 }
 
 .searchInput {
-    width: 300px;
+    width: 400px;
     padding: 10px;
     border: none;
     border-radius: 20px;
@@ -132,7 +150,7 @@
 }
 
 .modalContent {
-    background-color: white;
+    background-color: #15171a;
     padding: 20px;
     border-radius: 5px;
     display: flex;
@@ -190,7 +208,7 @@
 }
 
 #closeModel:hover {
-    color: #000;
+    color: #a80000;
 }
 
 .scrollModel {
@@ -201,6 +219,7 @@
     justify-content: space-around;
     overflow: auto;
     row-gap: 20px;
+
 }
 
 .scrollModel::-webkit-scrollbar {
@@ -208,16 +227,16 @@
 }
 
 .scrollModel::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #525252;
     border-radius: 10px;
 }
 
 .scrollModel::-webkit-scrollbar-thumb {
-    background: #888;
+    background: #a80000;
     border-radius: 10px;
 }
 
 .scrollModel::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: #b7b6b6;
 
 }

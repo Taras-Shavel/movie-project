@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import { moviesAction} from '../../redux';
+import {moviesAction, videoActions} from '../../redux';
+import {Link} from "react-router-dom";
+import css from './MovieInfo.module.css'
+
 import {useAppDispatch, useAppSelector} from '../../hooks';
 
-
-import css from './MovieInfo.module.css'
-import {Link} from "react-router-dom";
-import {StarsRating} from "../StarsRating";
-
+import {Loading} from "../Loading";
+import {Rating} from 'react-simple-star-rating';
 
 
 interface MovieDetailProps {
@@ -17,17 +17,17 @@ interface MovieDetailProps {
 const MovieInfo: React.FC<MovieDetailProps> = ({movie}) => {
     const dispatch = useAppDispatch();
     const {data, error} = useAppSelector(state => state.moviesReducer);
+    const {videos} = useAppSelector(state => state.videoReducer);
+
+
     const [isLoading, SetIsLoading] = useState(true);
-    // const genre = useAppSelector(state => state.genreReducer.genres);
-    // console.log(genre)
+
 
     useEffect(() => {
         setTimeout(() => {
             SetIsLoading(false);
-        }, 3000);
+        }, 0);
     }, []);
-
-
 
 
     useEffect(() => {
@@ -35,6 +35,9 @@ const MovieInfo: React.FC<MovieDetailProps> = ({movie}) => {
         console.log(movie)
     }, [dispatch, movie]);
 
+    useEffect(() => {
+        dispatch(videoActions.getAll(movie))
+    }, [dispatch, movie]);
 
 
     if (error) {
@@ -44,49 +47,90 @@ const MovieInfo: React.FC<MovieDetailProps> = ({movie}) => {
     if (!data) {
         return null;
     }
-    const {title, overview, vote_average, poster_path, genres} = data;
+    const {title, overview, runtime, vote_average, poster_path, tagline, genres, release_date, spoken_languages} = data;
+
+
     const baseURL = 'https://image.tmdb.org/t/p/w500'
     const emptyPhoto = 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'
     const imagePath = poster_path ? `${baseURL}/${poster_path}` : emptyPhoto;
-    // let genresArray: IGenre[] = [];
+    const tag = tagline === ""
 
 
+    const spokenLanguages = spoken_languages.map(language => language.english_name).join(', ');
 
-    // if (Array.isArray(data.genre_ids)) {
-    //     genresArray = data.genre_ids;
-    // } else if (data.genre_ids) {
-    //     genresArray = [data.genre_ids];
-    // }
-    console.log(genres)
     return (
 
-        <div >
+        <div>
             {isLoading ?
-                <div className={css.pageLoader}>
-                    <div className={css.loader}></div>
-                    <h1>Loading...</h1>
-                </div> :
+
+                <Loading/> :
                 <div className={css.detailMovie}>
-                    <div>
-                        <img src={imagePath} className={css.movieImg} alt="poster"/>
+                    <div className={css.imgRating}>
+                        <img src={imagePath} className={css.movieImg} alt={title}/>
+                        <div id={css.rating}>
+                            <Rating initialValue={vote_average}
+                                    size={30} readonly={true}
+                                    allowFraction={true} iconsCount={10}/>
+                            <div className={css.details}>
+                                <div className={css.infoRating}>
+                                    <h4>Rating: </h4>
+                                    <h4>{vote_average}</h4>
+                                </div>
+                                <div className={css.infoDate}>
+                                    <h4>Release Date: </h4>
+                                    <h4>{release_date}</h4>
+                                </div>
+
+                                <div className={css.infoTime}>
+                                    <h4>Time: </h4>
+                                    <h4>{runtime} minutes</h4>
+                                </div>
+
+                                <div className={css.infoLangua}>
+                                    <h4>Languages: </h4>
+                                    <h4>{spokenLanguages}</h4>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div className={css.blockDescriptionMovie}>
                         <h1>{title}</h1>
+                        {
+                            tag ? null : <h2>TagLine: {tagline}</h2>
+                        }
+
                         <div id={css.blockGenre}>
+
                             {
                                 genres.map(genre =>
                                     <Link id={css.movieGenre} to={`/genres/${genre.id}`}
-                                                                         key={genre.id}>{genre.name}</Link>)
+                                          key={genre.id}>{genre.name}</Link>)
                             }
                         </div>
+
                         <div id={css.descriptionMovie}>
-                            <h4>OverView:</h4>
+                            <h2>OverView:</h2>
                             <p>{overview}</p>
                         </div>
-                        <div id={css.rating}>
-                            <h4>Rating:</h4>
-                            <StarsRating rating={vote_average}/>
+                        <div className={css.mainContainerVideos}>
+                            <h2 style={{textAlign: "center", fontSize: '30px'}}>Trailers:</h2>
+                            <div className={css.containerVideos}>
+                                {videos.slice(0, 6).map(video => (
+                                    <div key={video.key} style={{width: '30%', height: '250px'}}>
+                                        <iframe
+                                            width="100%"
+                                            height="100%"
+                                            src={`https://www.youtube.com/embed/${video.key}`}
+                                            title={title}
+                                            frameBorder="0"
+                                            allowFullScreen
+                                            style={{borderRadius:'10px'}}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
                         </div>
+
 
                     </div>
                 </div>

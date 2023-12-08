@@ -9,12 +9,6 @@ import {useSearchParams} from "react-router-dom";
 
 
 const MovieList: FC = () => {
-    // const dispatch = useDispatch();
-    // const movies = useSelector((state: RootState) => state.movieReducer.movies);
-    //
-    // useEffect(() => {
-    //     dispatch(fetchMovies(1) as any);
-    // }, [dispatch]);
 
     const {movies, currentPage} = useAppSelector((state) => state.moviesReducer);
     const dispatch = useAppDispatch();
@@ -33,7 +27,7 @@ const MovieList: FC = () => {
 
     return (
         <div className={css.movieListStyle}>
-            {/*{movies.map((movie: IMovie) => <MovieListCard key={movie.id} movie={movie}/>)}*/}
+
             {
                 movies.map(movie => <MovieListCard key={movie.id} movie={movie}/>)
             }

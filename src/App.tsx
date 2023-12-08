@@ -6,21 +6,21 @@ import {MovieInfoPage, MoviePage} from "./pages";
 import {GenreMovies, GenresBadges} from "./components";
 
 
-
 function App() {
 
     return (
 
 
-        <Routes>
-            <Route path={'/'} element={<MainLayout/>}>
-                <Route index element={<MainPage/>}/>
-                <Route path={'/movieList'} element={<MoviePage/>}/>
-                <Route path={'/genres'} element={<GenresBadges/>}/>
-                <Route path={'/genres/:genreId'} element={<GenreMovies/>}/>
-                <Route path={'/movies/:movieId'} element={<MovieInfoPage/>}/>
-            </Route>
-        </Routes>
+            <Routes>
+                <Route path={'/'} element={<MainLayout/>}>
+                    <Route path={'/'} element={<MainPage/>}/>
+                    <Route path={'/movieList'} element={<MoviePage/>}/>
+                    <Route path={'/genres'} element={<GenresBadges/>}/>
+                    <Route path={'/genres/:genreId'} element={<GenreMovies/>}/>
+                    <Route path={'/movies/:movieId'} element={<MovieInfoPage/>}/>
+                </Route>
+            </Routes>
+
 
 
     );

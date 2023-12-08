@@ -3,7 +3,11 @@ import {useParams} from 'react-router-dom';
 import axios from 'axios';
 import {MovieListCard} from "../MovieListCard";
 import css from './GenreMovies.module.css'
-import {IMovieNew} from "../../interface/interfacesNew";
+
+import {Loading} from "../Loading";
+import {IMovieNew} from "../../interface";
+
+
 
 
 
@@ -13,11 +17,13 @@ const GenreMovies: FC = () => {
     const {genreId} = useParams();
     const [isLoading, SetIsLoading] = useState(true);
 
+
     useEffect(() => {
         setTimeout(() => {
             SetIsLoading(false);
         }, 3000);
     }, []);
+
 
     useEffect(() => {
         const fetchMovies = async () => {
@@ -41,16 +47,15 @@ const GenreMovies: FC = () => {
     }, [genreId]);
 
 
+
     return (
         <div>
             {
                 isLoading ?
-                    <div className={css.pageLoader}>
-                        <div className={css.loader}></div>
-                        <h1>Loading...</h1>
-                    </div> :
+
+                    <Loading/> :
                     <div style={{marginTop: '100px', marginBottom:'50px'}}>
-                        <h1>Movies of Genre</h1>
+                        <h1>Movies of Genre:</h1>
                         <div className={css.moviesGenre}>
                             {movies.map((movie) => (
                                 <MovieListCard key={movie.id} movie={movie}/>

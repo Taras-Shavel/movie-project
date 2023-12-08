@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { movieService } from "../../services";
-import { IMovieNew, IMoviesNew } from "../../interface/interfacesNew";
+import { IMovieNew, IMoviesNew } from "../../interface";
 
 interface IMovieStateNew {
     movies: IMovieNew[];
@@ -9,7 +9,7 @@ interface IMovieStateNew {
     loading: boolean;
     error: string | null;
     movie?: IMovieNew;
-    data: IMovieNew | null; // Змінено тип на IMovieNew | null
+    data: IMovieNew | null;
 }
 
 const initialState: IMovieStateNew = {
@@ -19,7 +19,7 @@ const initialState: IMovieStateNew = {
     loading: false,
     error: null,
     movie: {} as IMovieNew,
-    data: null, // Змінено значення на null
+    data: null,
 };
 
 const getAll = createAsyncThunk<IMoviesNew, number>(

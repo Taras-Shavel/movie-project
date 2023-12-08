@@ -1,3 +1,5 @@
 export * from './axios.service'
-export * from './movie.Service'
+export * from './movie.service'
 export * from './genre.service'
+
+export * from './videos.service'
