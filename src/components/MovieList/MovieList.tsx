@@ -1,10 +1,11 @@
-import React, { FC, useEffect } from 'react';
-import { moviesAction} from "../../redux";
+import React, {FC, useContext, useEffect} from 'react';
+import {useSearchParams} from "react-router-dom";
 
+import { moviesAction} from "../../redux";
 import {MovieListCard} from "../MovieListCard";
 import css from './MovieList.module.css'
 import {useAppDispatch, useAppSelector} from "../../hooks";
-import {useSearchParams} from "react-router-dom";
+import {ThemeContext} from "../../context";
 
 
 
@@ -13,6 +14,7 @@ const MovieList: FC = () => {
     const {movies, currentPage} = useAppSelector((state) => state.moviesReducer);
     const dispatch = useAppDispatch();
     const [_, setQuery] = useSearchParams();
+    const {theme} = useContext(ThemeContext)
 
 
     useEffect(() => {
@@ -26,7 +28,7 @@ const MovieList: FC = () => {
     console.log(movies)
 
     return (
-        <div className={css.movieListStyle}>
+        <div className={`${css.movieListStyle} ${theme === 'Light' ? css.Light : css.Dark}`}>
 
             {
                 movies.map(movie => <MovieListCard key={movie.id} movie={movie}/>)

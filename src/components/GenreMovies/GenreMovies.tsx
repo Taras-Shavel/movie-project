@@ -1,14 +1,11 @@
 import React, {FC, useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import axios from 'axios';
+
 import {MovieListCard} from "../MovieListCard";
 import css from './GenreMovies.module.css'
-
 import {Loading} from "../Loading";
 import {IMovieNew} from "../../interface";
-
-
-
 
 
 

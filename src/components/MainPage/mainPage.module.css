@@ -1,10 +1,10 @@
+/*Basic Styles*/
 .mainPage {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 800px;
 }
-
 .background {
     height: 100vh;
     background-image: url("/public/Photo/background.jpg");
@@ -13,9 +13,7 @@
     background-position: center;
     position: relative;
     opacity: 90%;
-
 }
-
 .descriptionPhone {
     width: 100%;
     height: 400px;
@@ -23,28 +21,15 @@
     align-items: center;
     justify-content: space-evenly;
 }
-
 .descriptionBlockPhone h1 {
     font-size: 40px;
 }
-
 .descriptionBlockPhone h3 {
     font-size: 20px;
 }
-
-.photoPhone {
-    width: 30%;
-    border-radius: 30px;
-    box-shadow: 0 0 10px 5px #b7b6b6;
-
-
-}
-
-
 .descriptionBlockPhone {
     text-align: center;
 }
-
 .background::before,
 .background::after {
     content: '';
@@ -54,66 +39,54 @@
     height: 50px;
     pointer-events: none;
 }
-
-.background::before {
-    top: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
-
-}
-
-.background::after {
-    bottom: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
-}
-
 .fon {
     width: 100%;
 }
-
 .movie {
     cursor: pointer;
 }
-
 .formSearch {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 .description {
     text-align: center;
     margin-top: 50px;
-
 }
-
 .description h1 {
     font-size: 60px;
     margin-bottom: 0;
 }
-
 .description h2 {
     font-size: 30px;
-
 }
-
-.colorText {
-    color: snow;
+.searchButton:active {
+    transform: scale(1.02);
 }
-
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+.modalContent h2 {
+    margin-bottom: 10px;
+}
+.modalContent button {
+    margin-top: 10px;
+}
+.titleModal {
+    width: 100%;
+}
+.titleModal h2 {
+    margin: 0;
+    position: relative;
+    top: -20px;
+}
+.buttonClose {
+    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-
-
+    justify-content: flex-end;
 }
-
+.photoPhone {
+    width: 30%;
+    border-radius: 30px;
+}
 .searchButton {
     appearance: none;
     border: 0;
@@ -125,11 +98,6 @@
     width: 150px;
     cursor: pointer;
 }
-
-.searchButton:active {
-    transform: scale(1.02);
-}
-
 .searchInput {
     width: 400px;
     padding: 10px;
@@ -139,18 +107,76 @@
     background-color: #f1f1f1;
     outline: none;
 }
-
 .searchInput::placeholder {
     color: #999;
 }
-
 .searchInput:focus {
     background-color: #fff;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
+/*<---end--->*/
 
+
+/*Dark Mode*/
+.Dark{
+    background: #15171a;
+    color: #fff;
+}
+.Dark .photoPhone {
+    box-shadow: 0 0 10px 5px #b7b6b6;
+}
+.Dark .colorText {
+    color: snow;
+}
+.Dark .background::before {
+    top: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+}
+.Dark .background::after {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+}
+/*<---end--->*/
+
+
+/*Light Mode*/
+.Light{
+    background: rgba(236, 236, 236, 0.8);
+    color: #000
+}
+.Light .photoPhone {
+    box-shadow: 0 0 10px 5px #000000;
+}
+.Light .colorText {
+    color: #000000;
+}
+.Light .background::before {
+    top: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), transparent);
+}
+.Light .background::after {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.5), transparent);
+}
+/*<---end--->*/
+
+
+
+
+
+/*Modal Window Style*/
+/*Basic Style*/
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .modalContent {
-    background-color: #15171a;
     padding: 20px;
     border-radius: 5px;
     display: flex;
@@ -158,59 +184,7 @@
     width: 70%;
     column-gap: 10px;
     height: 500px;
-
-
 }
-
-.modalContent h2 {
-    margin-bottom: 10px;
-}
-
-.modalContent button {
-    margin-top: 10px;
-}
-
-#h3 {
-    border: 1px solid black;
-    padding: 10px;
-}
-
-.titleModal {
-    width: 100%;
-}
-
-.titleModal h2 {
-    margin: 0;
-    position: relative;
-    top: -20px;
-
-}
-
-.buttonClose {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-}
-
-#closeModel {
-    font-size: 25px;
-    margin: 0;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-
-    top: 10px;
-    right: 10px;
-    width: 20px;
-    height: 20px;
-    line-height: 1;
-    color: #999;
-}
-
-#closeModel:hover {
-    color: #a80000;
-}
-
 .scrollModel {
     width: 100%;
     height: 80%;
@@ -219,24 +193,62 @@
     justify-content: space-around;
     overflow: auto;
     row-gap: 20px;
-
 }
+#closeModel {
+    font-size: 25px;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    line-height: 1;
+    color: #999;
+}
+#closeModel:hover {
+    color: #a80000;
+}
+/*<---end--->*/
 
+
+/*Dark style*/
+.Dark .modal{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.Dark .modalContent{
+    background-color: #15171a;
+}
+/*<---end--->*/
+
+
+/*Light Style*/
+.Light .modal{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.Light .modalContent{
+    background-color: rgb(255, 255, 255);
+}
+/*<---end--->*/
+
+
+
+
+
+/*Scroll Style*/
 .scrollModel::-webkit-scrollbar {
     width: 8px;
 }
-
 .scrollModel::-webkit-scrollbar-track {
     background: #525252;
     border-radius: 10px;
 }
-
 .scrollModel::-webkit-scrollbar-thumb {
     background: #a80000;
     border-radius: 10px;
 }
-
 .scrollModel::-webkit-scrollbar-thumb:hover {
     background: #b7b6b6;
-
 }
+/*<---end--->*/

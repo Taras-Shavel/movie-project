@@ -1,3 +1,4 @@
+/*Basic Style*/
 .mainPageGenres{
     width: 100%;
     display: flex;
@@ -7,7 +8,6 @@
     row-gap: 30px;
     margin-top: 100px;
 }
-
 .blockGenreList{
     width: 60%;
     display: flex;
@@ -16,5 +16,18 @@
     column-gap: 40px;
     row-gap: 40px;
 }
+/*<---end--->*/
 
 
+/*Dark Style*/
+.Dark h1{
+    color: #b7b6b6;
+}
+/*<---end--->*/
+
+
+/*Light Style*/
+.Light h1{
+    color: #15171a;
+}
+/*<---end--->*/

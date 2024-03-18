@@ -1,3 +1,7 @@
+/*Basic Style*/
+.genreStyle:hover::before {
+    opacity: 1;
+}
 .genreStyle{
     width: 200px;
     height: 60px;
@@ -6,16 +10,30 @@
     justify-content: center;
     align-items: center;
     font-size: 25px;
-    color: #b7b6b6;
-    box-shadow: 0 0 10px 5px #b7b6b6;
-    border: 2px solid #b7b6b6;
 }
-.genreStyle:hover::before {
-    opacity: 1;
-}
-
 .genreStyle:hover {
     box-shadow: 0 0 10px 5px #a80000;
     border: 2px solid #a80000;
     color: #a80000;
 }
+
+/*<---end--->*/
+
+
+/*Dark Style*/
+.Dark {
+    color: #b7b6b6;
+    box-shadow: 0 0 10px 5px #b7b6b6;
+    border: 2px solid #b7b6b6;
+}
+/*<---end--->*/
+
+
+/*Light Style*/
+.Light{
+    color: #15171a;
+    box-shadow: 0 0 10px 5px #15171a;
+    border: 2px solid #15171a;
+}
+/*<---end--->*/
+

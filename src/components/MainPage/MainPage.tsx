@@ -1,15 +1,17 @@
-import React, {FC, useState} from 'react';
-import css from './mainPage.module.css';
-
+import React, {FC, useContext, useState} from 'react';
 import axios from 'axios';
+
+import css from './mainPage.module.css';
 import {ModalWindow} from "../ModalWindow";
 import {IMovieNew} from "../../interface";
+import {ThemeContext} from "../../context";
 
 
 const MainPage: FC = () => {
     const [movies, setMovies] = useState<IMovieNew[]>([]);
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [showModal, setShowModal] = useState<boolean>(false);
+    const {theme} = useContext(ThemeContext)
 
     const handleSearch = async () => {
         try {
@@ -37,7 +39,7 @@ const MainPage: FC = () => {
     const isButtonDisabled = searchQuery.trim() === '';
 
     return (
-        <div>
+        <div className={theme === 'Light' ? css.Light : css.Dark}>
             <div className={css.background}>
                 <div className={css.mainPage}>
                     <div className={css.description}>

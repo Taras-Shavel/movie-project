@@ -1,12 +1,14 @@
-import React, { FC, useState } from 'react';
+import React, {FC, useContext, useState} from 'react';
+import {Link, useSearchParams} from "react-router-dom";
 
 import { moviesAction} from "../../redux";
 import css from './pagination.module.css'
-import {Link, useSearchParams} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../hooks";
+import {ThemeContext} from "../../context";
 
 const MoviePagination: FC = () => {
 
+    const {theme} = useContext(ThemeContext)
     const [, setQuery] = useSearchParams();
     const [currentPage, setCurrentPage] = useState(1);
     const total_page = useAppSelector(state => state.moviesReducer.total_page);
@@ -29,7 +31,7 @@ const MoviePagination: FC = () => {
     };
 
     return (
-        <div>
+        <div className={`${theme === 'Light' ? css.Light : css.Dark}`}>
             <div className={css.genresStyle}>
                 <Link to={'/genres'} className={css.genres}>Choose a movie genre</Link>
             </div>

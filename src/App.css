@@ -1,0 +1,8 @@
+
+body.Light {
+    background: rgba(236, 236, 236, 0.8);
+}
+
+body.Dark {
+    background-color: #15171a;
+}

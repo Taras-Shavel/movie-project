@@ -1,9 +1,16 @@
+/*Basic Style*/
 body {
     margin: 0;
     padding: 0;
-    background-color: #15171a;
-    color: #b7b6b6;
+
+    /*color: #b7b6b6;*/
+    color: #15171a;
 }
+
+
+
+
+
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -20,3 +27,17 @@ body {
 ::-webkit-scrollbar-track:horizontal {
     background-color: #282c35;
 }
+
+/*<---end--->*/
+
+/*Dark style*/
+/*body {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    background-color: #15171a;*/
+/*    color: #b7b6b6;*/
+/*}*/
+/*!*<---end--->*!*/
+
+/*Light style*/
+/*<---end--->*/

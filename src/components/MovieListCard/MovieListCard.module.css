@@ -1,3 +1,4 @@
+/*Basic Styles*/
 .container {
     width: 300px;
     display: flex;
@@ -7,7 +8,6 @@
     cursor: pointer;
     box-sizing: border-box;
 }
-
 .listCard {
     width: 100%;
     display: flex;
@@ -15,23 +15,40 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    background-color: black;
 }
-
 .imgPost {
     width: 100%;
     box-sizing: border-box;
     transition: opacity 0.4s;
 }
-
 .container h3 {
     margin: 5px;
     text-align: center;
 }
-
 .listCard:hover img {
     opacity: 0.3;
 }
+/*<---End--->*/
+
+
+/*Dark Style*/
+.Dark .listCard{
+    background-color: black;
+}
+.Dark h3{
+    color: #b7b6b6;
+}
+/*<---End--->*/
+
+
+/*Light Style*/
+.Light .listCard{
+    background-color: white;
+}
+.Light h3{
+    color: #15171a;
+}
+/*<---End--->*/
 
 .listCard::before {
     content: "\25B6";
@@ -45,14 +62,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
-
 .listCard:hover::before {
     opacity: 1;
 }
-
 .listCard:hover {
-
     box-shadow: 0 0 10px 5px #a80000;
 }

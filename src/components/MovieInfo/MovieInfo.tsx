@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from 'react';
-import {moviesAction, videoActions} from '../../redux';
+import React, {useContext, useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
-import css from './MovieInfo.module.css'
-
-import {useAppDispatch, useAppSelector} from '../../hooks';
-
-import {Loading} from "../Loading";
 import {Rating} from 'react-simple-star-rating';
+
+import css from './MovieInfo.module.css'
+import {useAppDispatch, useAppSelector} from '../../hooks';
+import {moviesAction, videoActions} from '../../redux';
+import {Loading} from "../Loading";
+import {ThemeContext} from "../../context";
 
 
 interface MovieDetailProps {
@@ -15,6 +15,7 @@ interface MovieDetailProps {
 }
 
 const MovieInfo: React.FC<MovieDetailProps> = ({movie}) => {
+    const {theme} = useContext(ThemeContext)
     const dispatch = useAppDispatch();
     const {data, error} = useAppSelector(state => state.moviesReducer);
     const {videos} = useAppSelector(state => state.videoReducer);
@@ -64,7 +65,7 @@ const MovieInfo: React.FC<MovieDetailProps> = ({movie}) => {
             {isLoading ?
 
                 <Loading/> :
-                <div className={css.detailMovie}>
+                <div className={`${css.detailMovie} ${theme === 'Light' ? css.Light : css.Dark}`}>
                     <div className={css.imgRating}>
                         <img src={imagePath} className={css.movieImg} alt={title}/>
                         <div id={css.rating}>
@@ -77,7 +78,7 @@ const MovieInfo: React.FC<MovieDetailProps> = ({movie}) => {
                                     <h4>{vote_average}</h4>
                                 </div>
                                 <div className={css.infoDate}>
-                                    <h4>Release Date: </h4>
+                                    <h4>Release: </h4>
                                     <h4>{release_date}</h4>
                                 </div>
 

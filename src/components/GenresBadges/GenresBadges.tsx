@@ -1,13 +1,16 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, useContext, useEffect, useState} from 'react';
+
 import {genreActions, RootState} from "../../redux";
 import css from './GenresBadges.module.css'
 import {GenreBadge} from "../GenreBadge";
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {Loading} from "../Loading";
+import {ThemeContext} from "../../context";
 
 
 const GenresBadges: FC = () => {
     const dispatch = useAppDispatch();
+    const {theme} = useContext(ThemeContext)
     const {genres} = useAppSelector((state: RootState) => state.genreReducer);
     const [isLoading, SetIsLoading] = useState(true);
 
@@ -28,7 +31,7 @@ const GenresBadges: FC = () => {
                 isLoading ?
                     <Loading/>
                     :
-                    <div className={css.mainPageGenres}>
+                    <div className={`${css.mainPageGenres} ${theme === 'Light' ? css.Light : css.Dark}`}>
                         <h1>Choose a movie genre</h1>
                         <div className={css.blockGenreList}>
                             {

@@ -1,13 +1,11 @@
-
+/*Basic Style*/
 .container{
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-
 }
-
 .ring{
     width: 400px;
     height: 400px;
@@ -16,9 +14,30 @@
     position: absolute;
 }
 .loading{
-    color: #b7b6b6;
     font-size: 40px;
 }
+/*<---end--->*/
+
+/*Dark Mode*/
+.Dark {
+    background-color: #15171a;
+}
+.Dark .loading{
+    color: #b7b6b6;
+}
+/*<---end--->*/
+
+/*Light Mode*/
+.Light {
+    background: rgba(236, 236, 236, 0.8);
+}
+.Light .loading{
+    color: #15171a;
+}
+/*<---end--->*/
+
+
+
 .ring:nth-child(1){
     border-bottom-width: 8px;
     border-color: rgb(255, 0, 255);

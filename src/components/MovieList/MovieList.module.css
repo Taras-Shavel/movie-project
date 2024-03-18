@@ -1,3 +1,4 @@
+/*Basic style*/
 .movieListStyle{
     display: flex;
     justify-content: space-around;
@@ -6,3 +7,16 @@
     row-gap: 20px;
     margin-top: 20px;
 }
+/*<---end--->*/
+
+/*Dark Mode*/
+.Dark{
+    background-color: #15171a;
+}
+/*<---end--->*/
+
+/*Light Mode*/
+.Light{
+    background: rgba(236, 236, 236, 0.8);
+}
+/*<---end--->*/

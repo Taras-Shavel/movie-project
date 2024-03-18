@@ -1,3 +1,4 @@
+/*Basic Styles*/
 .movie{
     width: 20%;
     padding: 5px;
@@ -5,7 +6,6 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-
     cursor: pointer;
     margin-top: 10px;
     border-bottom: 2px solid #b7b6b6;
@@ -17,7 +17,6 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    background-color: black;
 }
 .movie h3{
     margin: 0;
@@ -25,16 +24,30 @@
 .imgPost{
     width: 100%;
 }
-
 .listCard:hover img {
     opacity: 0.3;
 }
-
 .listCard:hover::before {
     opacity: 1;
 }
-
 .listCard:hover {
-
     box-shadow: 0 0 10px 5px #a80000;
 }
+/*<---end--->*/
+
+
+/*Dark Mode*/
+.Dark .listCard{
+    background-color: black;
+}
+/*<---end--->*/
+
+
+/*Light Mode*/
+.Light .listCard{
+    background-color: #ffffff;
+}
+/*<---end--->*/
+
+
+
