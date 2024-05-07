@@ -1,36 +1,29 @@
-import React, {useEffect, useState} from 'react';
-import {useParams} from 'react-router-dom';
-import {Loading, MovieInfo} from "../../components";
-
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { Loading, MovieInfo } from "../../components";
 
 const MovieInfoPage = () => {
-    const {movieId} = useParams<{ movieId?: string }>();
-    const [isLoading, SetIsLoading] = useState(true);
+    const { movieId } = useParams<{ movieId?: string }>();
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        setTimeout(() => {
-            SetIsLoading(false);
-        }, 3000);
-    }, []);
+        if (movieId !== undefined) {
+            setIsLoading(true);
+            setTimeout(() => {
+                setIsLoading(false);
+            }, 3000);
+        }
+    }, [movieId]);
 
-
-    if (movieId === undefined) {
+    if (!movieId) {
         return <div>Loading...</div>;
     }
 
-
     return (
         <div>
-            {
-            isLoading ?
-                <Loading/>
-                :
-                <MovieInfo movie={+movieId}/>
-        }
-
-
+            {isLoading ? <Loading/> : <MovieInfo movie={+movieId}/>}
         </div>
     );
 };
 
-export {MovieInfoPage};
+export { MovieInfoPage };

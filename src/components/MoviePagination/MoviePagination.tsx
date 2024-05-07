@@ -32,9 +32,9 @@ const MoviePagination: FC = () => {
 
     return (
         <div className={`${theme === 'Light' ? css.Light : css.Dark}`}>
-            <div className={css.genresStyle}>
-                <Link to={'/genres'} className={css.genres}>Choose a movie genre</Link>
-            </div>
+            {/*<div className={css.genresStyle}>*/}
+            {/*    <Link to={'/genres'} className={css.genres}>Choose a movie genre</Link>*/}
+            {/*</div>*/}
             <div className={css.buttonPagination}>
                 <button onClick={handlePreviousPage} className={css.button} disabled={currentPage === 1}>
                     Prev Page

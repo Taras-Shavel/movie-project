@@ -8,5 +8,6 @@ export * from './GenreMovies'
 export * from './MoviePagination'
 export * from './GenresBadges'
 export * from './Loading'
-
-
+export * from './Recommendation'
+export * from './ImageMovie'
+export * from './CreditInfo'

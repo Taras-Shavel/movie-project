@@ -3,85 +3,104 @@
     display: flex;
     margin-top: 100px;
 }
+
 .imgRating {
     text-align: center;
     width: 25%;
     padding: 20px;
 }
+
 .movieImg {
     width: 100%;
     border-radius: 10px;
 }
+
 .infoDate, .infoTime, .infoLangua, .infoRating {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
+
 .blockDescriptionMovie {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 75%;
 }
+
 .blockDescriptionMovie {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 75%;
 }
+
 .blockDescriptionMovie h1 {
     font-size: 50px;
     margin-bottom: 5px;
 }
+
 .blockDescriptionMovie h2 {
     margin-top: 5px;
 }
+
 #blockGenre {
     display: flex;
     column-gap: 50px;
     font-size: 30px;
 }
+
 .blockDescriptionMovie {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 75%;
 }
+
 .blockDescriptionMovie h1 {
     font-size: 50px;
     margin-bottom: 5px;
 }
+
 .blockDescriptionMovie h2 {
     margin-top: 5px;
 }
+
 #blockGenre {
     display: flex;
     column-gap: 50px;
     font-size: 30px;
 }
+
 #movieGenre:hover {
     transform: scale(1.04);
 }
+
 #descriptionMovie {
     width: 70%;
     font-size: 20px;
     text-align: center;
     margin-top: 30px;
 }
+
 #descriptionMovie h2 {
     text-align: center;
     margin-bottom: 0;
 }
+
 #descriptionMovie p {
     margin-top: 0;
     font-size: 25px;
 }
+
 #rating {
     text-align: center;
 }
+
 #rating h4 {
     margin: 0;
 }
+
 .details {
     margin-top: 50px;
     display: flex;
@@ -90,9 +109,11 @@
     border-radius: 10px;
     padding: 10px;
 }
-.mainContainerVideos{
+
+.mainContainerVideos {
     width: 100%;
 }
+
 .containerVideos {
     height: 550px;
     width: 100%;
@@ -103,6 +124,7 @@
     row-gap: 20px;
     column-gap: 20px;
 }
+
 .infoDate h4, .infoTime h4, .infoLangua h4, .infoRating h4 {
     width: 40%;
     display: flex;
@@ -111,12 +133,14 @@
     border-bottom: 2px solid #a80000;
     padding-left: 10px;
 }
+
 .Light #movieGenre:hover, .Dark #movieGenre:hover {
     box-shadow: 0 0 10px 5px #a80000;
     border: 2px solid #a80000;
     color: #a80000;
     cursor: pointer;
 }
+
 #movieGenre {
     display: flex;
     justify-content: center;
@@ -127,32 +151,118 @@
     width: 150px;
     text-align: center;
 }
+
+.ContainerCredits {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 20px;
+    column-gap: 20px;
+    color: white;
+}
+
+.Slider, .SliderImages, .SliderRecommen {
+    width: 90vw;
+}
+
+.SliderRecommen div, .Slider div {
+    display: flex;
+    justify-content: space-around;
+}
+
+.SliderImages div {
+    display: flex;
+}
+
+.SliderRecommen {
+    display: flex;
+    justify-content: space-around;
+}
+
+.Slider ul, .SliderImages ul, .SliderRecommen ul {
+    position: relative;
+    margin-top: 10px;
+}
+
+.sliderContainer, .sliderContainerImages, .sliderContainerRecommen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+
+.SliderImages button {
+    top: 45%;
+    margin: 0;
+}
+
+.Slider button, .SliderRecommen button {
+    margin: 0;
+}
+
+
 /*<---end--->*/
 
 
-
 /*Dark style*/
-.Dark #movieGenre{
+.Dark .sliderContainer .Slider ul li button:before,
+.Dark .sliderContainerImages .SliderImages ul li button:before,
+.Dark .sliderContainerRecommen .SliderRecommen ul li button:before,
+.Dark .Slider button:before,
+.Dark .SliderImages button:before,
+.Dark .SliderRecommen button:before {
+    color: #a80000;
+
+}
+
+.Dark .sliderContainer,
+.Dark .sliderContainerImages,
+.Dark .SliderContainerRecommen {
+    color: #b7b6b6;
+}
+
+.Dark #movieGenre {
     color: #b7b6b6;
     box-shadow: 0 0 10px 5px #b7b6b6;
     border: 2px solid #b7b6b6;
 }
-.Dark h1, .Dark h2, .Dark p, .Dark h4{
+
+.Dark h1, .Dark h2, .Dark p, .Dark h4 {
     color: #b7b6b6;
 }
+
 /*<---end--->*/
 
 
-
 /*Light style*/
-.Light #movieGenre{
+.Light .sliderContainer .Slider ul li button:before,
+.Light .sliderContainerImages .SliderImages ul li button:before,
+.Light .sliderContainerRecommen .SliderRecommen ul li button:before,
+.Light .Slider button:before,
+.Light .SliderImages button:before,
+.Light .SliderRecommen button:before {
+    color: #15171a;
+
+}
+
+.Light .sliderContainer,
+.Light .sliderContainerImages,
+.Light .SliderContainerRecommen {
+    color: #15171a;
+}
+
+.Light #movieGenre {
     color: #15171a;
     box-shadow: 0 0 10px 5px #15171a;
     border: 2px solid #15171a;
 }
-.Light h1, .Light h2, .Light p, .Light h4{
-    color:#15171a;
+
+.Light h1, .Light h2, .Light p, .Light h4 {
+    color: #15171a;
 }
+
 /*<---end--->*/
 
 

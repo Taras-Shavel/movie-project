@@ -1,5 +1,7 @@
 export * from './axios.service'
 export * from './movie.service'
 export * from './genre.service'
-
+export * from './credits.service'
 export * from './videos.service'
+export * from './images.service'
+export * from './recommendations.service'

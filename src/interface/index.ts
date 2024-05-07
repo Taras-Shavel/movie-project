@@ -6,4 +6,7 @@ export * from './genre.interface'
 export * from './genres.interface'
 export * from './movie.interface'
 export * from './movies.interface'
+export * from './creditsDetails.interface'
+export * from './credits.interface'
+export * from './images.interface'
 

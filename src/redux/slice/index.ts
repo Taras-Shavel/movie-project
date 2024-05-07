@@ -1,4 +1,6 @@
 export * from './Movie.slice'
 export * from './Genre.slice'
-
+export * from './Credits.slice'
 export * from './Video.slice'
+export * from './Images.slice'
+export * from './Recommendations.slice'

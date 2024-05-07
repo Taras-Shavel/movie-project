@@ -1,0 +1,44 @@
+/*Basic Style*/
+.container {
+    display: flex !important;
+    flex-direction: column;
+    height: 300px;
+    width: 200px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+h4 {
+    margin: 0;
+}
+
+.blockName, .blockCharacter {
+    align-items: center;
+    height: 10%;
+    width: 100%;
+}
+
+.blockImg {
+    height: 80%;
+    width: 100%;
+}
+
+img {
+    width: 100%
+}
+
+/*<---end--->*/
+
+/*Dark Style*/
+.Dark {
+    border: 2px solid #b7b6b6;
+}
+
+/*<---end--->*/
+
+/*Light Style*/
+.Light {
+    border: 2px solid #15171a;
+}
+
+/*<---end--->*/

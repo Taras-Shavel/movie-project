@@ -3,6 +3,7 @@ import {Loading, MoviePagination} from "../../components";
 import {MovieList} from "../../components";
 import css from './MoviePage.module.css'
 import {ThemeContext} from "../../context";
+import {Link} from "react-router-dom";
 
 
 const MoviePage = () => {
@@ -22,8 +23,11 @@ const MoviePage = () => {
                     <Loading/>
                     :
                     <div className={`${css.container} ${theme === 'Light' ? css.Light : css.Dark}`}>
-                        <MoviePagination/>
+                        <div className={css.genresStyle}>
+                            <Link to={'/genres'} className={css.genres}>Choose a movie genre</Link>
+                        </div>
                         <MovieList/>
+                        <MoviePagination/>
                     </div>
             }
 

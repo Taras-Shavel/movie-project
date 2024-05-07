@@ -4,6 +4,7 @@ import {useNavigate} from "react-router";
 import css from './MovieListCard.module.css'
 import {IMovieNew} from "../../interface";
 import {ThemeContext} from "../../context";
+import {baseUrlPhoto} from "../../constants";
 
 
 
@@ -24,7 +25,7 @@ const MovieListCard: FC<IProps> = ({movie}) => {
     return (
         <div className={`${css.container} ${theme === 'Light' ? css.Light : css.Dark}`} onClick={handleButtonClick}>
             <div className={css.listCard}>
-                <img src= {`${baseURL}/${poster_path}`} className={css.imgPost} alt="poster"/>
+                <img src= {`${baseUrlPhoto}/${poster_path}`} className={css.imgPost} alt="poster"/>
             </div>
             <h3>{title}</h3>
 
