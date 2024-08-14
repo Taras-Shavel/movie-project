@@ -25,7 +25,7 @@ const MainPage: FC = () => {
                 }
             );
             setMovies(response.data.results);
-            setShowModal(true); // Додано цей рядок
+            setShowModal(true);
         } catch (error) {
             console.error(error);
         }

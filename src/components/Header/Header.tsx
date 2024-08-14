@@ -19,7 +19,7 @@ const Header: FC = () => {
         <div className={`${css.Header} ${theme === 'Light' ? css.Light : css.Dark}`} >
             <div className={css.nameWebSite}>
                 <Link to={'/'} id={css.linkWebSite}>
-                    WEBKINO
+                    MOVIE-HUB
                 </Link>
 
             </div>

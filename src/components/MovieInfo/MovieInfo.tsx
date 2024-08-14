@@ -144,13 +144,13 @@ const MovieInfo: React.FC<MovieDetailProps> = ({movie}) => {
     const {title, overview, runtime, vote_average, poster_path, tagline, genres, release_date, spoken_languages} = data;
 
 
-    // const baseURL = 'https://image.tmdb.org/t/p/w500'
+
     const emptyPhoto = 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'
     const imagePath = poster_path ? `${baseUrlPhoto}/${poster_path}` : emptyPhoto;
 
 
     const tag = tagline === ""
-
+    console.log(data)
 
     const spokenLanguages = spoken_languages.map(language => language.english_name).join(', ');
 

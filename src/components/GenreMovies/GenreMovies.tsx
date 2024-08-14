@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, useContext, useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import axios from 'axios';
 
@@ -6,6 +6,7 @@ import {MovieListCard} from "../MovieListCard";
 import css from './GenreMovies.module.css'
 import {Loading} from "../Loading";
 import {IMovieNew} from "../../interface";
+import {ThemeContext} from "../../context";
 
 
 
@@ -13,6 +14,7 @@ const GenreMovies: FC = () => {
     const [movies, setMovies] = useState<IMovieNew[]>([]);
     const {genreId} = useParams();
     const [isLoading, SetIsLoading] = useState(true);
+    const {theme} = useContext(ThemeContext);
 
 
     useEffect(() => {
@@ -51,7 +53,7 @@ const GenreMovies: FC = () => {
                 isLoading ?
 
                     <Loading/> :
-                    <div style={{marginTop: '100px', marginBottom:'50px'}}>
+                    <div className={`${css.container} ${theme === 'Light' ? css.Light : css.Dark}`}>
                         <h1>Movies of Genre:</h1>
                         <div className={css.moviesGenre}>
                             {movies.map((movie) => (

@@ -1,3 +1,6 @@
+.container{
+    margin: 100px 0 50px 0;
+}
 .moviesGenre{
     display: flex;
     justify-content: space-around;
@@ -10,3 +13,10 @@ h1{
     text-align: center;
 }
 
+.Light h1{
+    color: #15171a;
+}
+
+.Dark h1{
+    color: #b7b6b6;
+}

@@ -16,7 +16,6 @@ const MovieListCard: FC<IProps> = ({movie}) => {
     const navigate = useNavigate();
 
     const {id, title, poster_path} = movie;
-    const baseURL = 'https://image.tmdb.org/t/p/w500'
     const handleButtonClick = () => {
         navigate(`/movies/${id}`);
     };
